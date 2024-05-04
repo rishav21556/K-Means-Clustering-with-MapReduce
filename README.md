@@ -41,7 +41,7 @@ To run the mapper.py script, follow these steps:
 1. Open a terminal.
 2. Navigate to the project directory.
 3. Run the mapper.py script with the appropriate arguments. For example, to run mapper instances named "m1" and "m2":
-python mapper.py m1, python mapper.py m2
+python Master.py, python mapper.py m1, python mapper.py m2
 
 
 Make sure to replace "m1" and "m2" with  "r1", and "r2" for running reducers.
