@@ -29,7 +29,27 @@ This project implements the K-Means clustering algorithm using the MapReduce fra
 - Handle failures associated with Mapper or Reducer.
 - Re-run failed tasks to ensure computation completion.
 
-## Directory Structure (Sample)
+## Directory Structure
 ![image](https://github.com/rishav21556/K-Means-Clustering-with-MapReduce/assets/108609833/4cd68a26-4e0f-4f08-b564-e7e9b4f62760)
+
+## Setup and Installation
+1. Clone the repository to your local machine.
+2. Ensure you have Python installed along with the necessary dependencies. You can install them using the following command:
+pip install -r requirements.txt
+
+To run the mapper.py script, follow these steps:
+1. Open a terminal.
+2. Navigate to the project directory.
+3. Run the mapper.py script with the appropriate arguments. For example, to run mapper instances named "m1" and "m2":
+python mapper.py m1
+python mapper.py m2
+
+
+Make sure to replace "m1" and "m2" with  "r1", and "r2" for running reducers.
+
+## Additional Notes
+- Ensure that you have the correct input data file in the specified format for the clustering algorithm to work properly.
+- You may need to adjust the parameters such as the number of map tasks, reduce tasks, centroids, and iterations based on your specific use case.
+- Monitor the execution progress by checking the logs generated during the execution.
 
 
