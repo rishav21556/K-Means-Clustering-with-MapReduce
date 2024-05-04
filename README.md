@@ -30,19 +30,6 @@ This project implements the K-Means clustering algorithm using the MapReduce fra
 - Re-run failed tasks to ensure computation completion.
 
 ## Directory Structure (Sample)
-Data/
-├─ Input/
-│  ├─ points.txt (initial points)
-├─ Mappers/
-│  ├─ M1/
-│  │  ├─ partition_1.txt
-│  │  ├─ partition_2.txt
-│  │  ├─ partition_R.txt
-│  ├─ M2/ ...
-│  ├─ M3/ ...
-...
-├─ Reducers/
-│  ├─ R1.txt
-│  ├─ R2.txt
-├─ centroids.txt (final list of centroids)
+![image](https://github.com/rishav21556/K-Means-Clustering-with-MapReduce/assets/108609833/4cd68a26-4e0f-4f08-b564-e7e9b4f62760)
+
 
