@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+message data_point {
+    float x = 1;
+    float y = 2;
+}
+message master_to_mapper_task_assign {
+    int32 start_index = 1;
+    int32 end_index = 2;
+    repeated data_point k_clusters = 3;
+    repeated data_point data_points = 4;
+    int32 M = 5;
+    int32 R = 6;
+    int32 k = 7;
+    int32 id = 8;
+    int32 map_task = 9;
+}
+message master_to_reducer_task_assign {
+    int32 partition_index = 1;
+    repeated int32 mapper_port = 2;
+    int32 M = 3;
+    int32 R = 4;
+    int32 k = 5;
+    int32 id = 6;
+}
+message mapper_to_reducer_data_point {
+    float key = 1;
+    data_point value = 2;
+    float count = 3;
+}
+message master_to_mapper_task_assign_response{
+    bool success = 1;
+}
+message master_to_reducer_task_assign_response{
+    bool success = 1;
+}
+message mapper_to_master_file_read_response {
+    string point = 1;
+}
+message reducer_to_mapper_file_read{
+    int32 partition_index = 1;
+    int32 reducer_id = 2;
+}
+message reducer_to_mapper_file_read_response{
+    repeated mapper_to_reducer_data_point data_points = 1;
+    bool success = 2;
+}
+message is_alive_response {
+    bool alive = 1;
+}
+service Mapper {
+    rpc assign_task(master_to_mapper_task_assign) returns (master_to_mapper_task_assign_response) {}
+    rpc give_partition_data(reducer_to_mapper_file_read) returns (reducer_to_mapper_file_read_response) {}
+    rpc is_alive(is_alive_response) returns (is_alive_response) {}  
+}
+service Reducer{
+    rpc reducer_assign_task(master_to_reducer_task_assign) returns (master_to_reducer_task_assign_response) {}
+    rpc is_alive(is_alive_response) returns (is_alive_response) {}  
+}
